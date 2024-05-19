@@ -1,0 +1,41 @@
+### register
+POST http://localhost:3000/api/v1/register
+Content-Type: application/json
+
+{
+    "name":"renja ril",
+    "email":"e41212053@student.polije.ac.id",
+    "password":"password123"
+}
+
+### whoami
+GET http://localhost:3000/api/v1/users?limit=5&page=2
+
+### login
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+    "email":"e41212053@student.polije.ac.id",
+    "password":"password123"
+}
+
+### whoami
+GET http://localhost:3000/api/v1/whoami
+# Authorization: Bearer tokentoken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzE1OTQ2OTUwfQ.sM3lvCYOQlXPWzZdFkyC2zifaCVsunSr4CIj4Nh-hOs
+
+###
+GET http://localhost:3000/api/v1/request-verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzE1OTQ2OTUwfQ.sM3lvCYOQlXPWzZdFkyC2zifaCVsunSr4CIj4Nh-hOs
+
+### create new admin
+POST http://localhost:3000/api/v1/create-admin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJuYW1lIjoidGF0ZSIsImVtYWlsIjoidGF0ZUBtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiJ9LCJpYXQiOjE3MTM1NDU3MTB9.1u6B2MTZq0EJ3SwEjvNxtTRiRlCyRTvJcgnZiYMFt1I
+
+{
+    "name":"galuh",
+    "email":"galuh@mail.com",
+    "password":"password123"
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, nav, main, footer {
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User ID: <%= userID %></h1>
+    </header>
+    <main>
+        <h2>Notification list</h2>
+        <ul id="notifications-list">
+            <% notifications.forEach(item => { %>
+                <li>
+                    <b style="color: slategray;"><%= item.title %></b>
+                    <p style="color: slategray;"><%= item.body %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2023 tatangdev. All rights reserved.</p>
+    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const notificationsList = document.getElementById('notifications-list');
+        const userID = '<%= userID %>';
+
+        socket.emit('join', userID);
+
+        socket.on(`user-${userID}`, (notif) => {
+            console.log(notif);
+
+            const item = document.createElement('li');
+            item.innerHTML = `
+                <b>${notif.title}</b>
+                <p>${notif.body}</p>
+            `;
+
+            notificationsList.appendChild(item);
+        });
+    </script>
+</body>
+</html>

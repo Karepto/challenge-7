@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <% if (typeof error !== 'undefined') { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+    <form action="/api/v1/register" method="post">
+        <span>Name:</span>
+        <input type="name" id="name" name="name" required>
+        <br><br>
+        <span>Email:</span>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        <br><br>
+        <span>Password:</span>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Register">
+    </form>
+    <br><br>
+</body>
+</html>
